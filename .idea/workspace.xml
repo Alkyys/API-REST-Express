@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bfd0066-8e0c-4c71-acc6-9eb49185c101" name="Default Changelist" comment="" />
+    <list default="true" id="2bfd0066-8e0c-4c71-acc6-9eb49185c101" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.4.4.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.4.4.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/lib/types/urlencoded.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/body-parser/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/body-parser/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bytes/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/History.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bytes/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bytes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bytes/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bytes/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/Changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/Changelog.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-codec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/encodings/sbcs-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/iconv-lite/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/raw-body/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/raw-body/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/raw-body/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/raw-body/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -16,10 +38,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="285">
+              <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="27" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -128,7 +150,7 @@
       <option name="presentableId" value="Default" />
       <updated>1556807959582</updated>
       <workItem from="1556807960837" duration="2168000" />
-      <workItem from="1556829223628" duration="9339000" />
+      <workItem from="1556829223628" duration="12892000" />
     </task>
     <task id="LOCAL-00001" summary="ajoutdes routes post put delete">
       <created>1556873511663</created>
@@ -144,17 +166,24 @@
       <option name="project" value="LOCAL" />
       <updated>1556876127198</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="npm install uuid">
+      <created>1556876329910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556876329910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11507000" />
+    <option name="totallyTimeSpent" value="15060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="0" width="971" height="1046" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49891067" visible="true" weight="0.21069519" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49891067" visible="true" weight="0.16684492" />
       <window_info id="Structure" order="1" sideWeight="0.50108933" side_tool="true" weight="0.10384818" />
       <window_info id="npm" order="2" sideWeight="0.50108933" side_tool="true" weight="0.10384818" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -168,7 +197,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5005348" side_tool="true" weight="0.05505618" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49946523" visible="true" weight="0.31573033" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946523" weight="0.31573033" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -180,7 +209,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ajoutdes routes post put delete" />
     <MESSAGE value="ajout des routes get pour users et nessages" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout des routes get pour users et nessages" />
+    <MESSAGE value="npm install uuid" />
+    <option name="LAST_COMMIT_MESSAGE" value="npm install uuid" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -190,6 +220,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -197,22 +230,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="285">
+          <caret line="84" column="2" selection-start-line="84" selection-start-column="2" selection-end-line="84" selection-end-column="27" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>

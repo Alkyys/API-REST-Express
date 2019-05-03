@@ -1,5 +1,7 @@
+import uuidv4 from 'uuid/v4';
 import 'dotenv/config';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import express from 'express';
 
 
@@ -10,6 +12,11 @@ console.log(process.env.MY_SECRET);
 const app = express();
 //notre app est proteger par cors
 app.use(cors());
+//on va utiliser body parser
+//body-parser sert a extraire les entiter de body dans les requetes
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //mes users
 let users = {
@@ -75,6 +82,12 @@ app.delete('/users/:userId', (req, res) => {
     return res.send(`DELETE HTTP method on user/${req.params.userId} resource`);
 });
 
+//custom Express middleware
+app.use((req, res, next) => {
+    req.me = users[1];
+    next();
+});
+
 //route message
 app.get('/messages', (req, res) => {
     return res.send(Object.values(messages));
@@ -84,7 +97,21 @@ app.get('/messages/:messageId', (req, res) => {
     return res.send(messages[req.params.messageId]);
 });
 
+app.post('/messages', (req, res) => {
+    const id = uuidv4();
+    const message = {
+        id,
+        text: req.body.text,
+        userId: req.me.id,
+    };
+
+    messages[id] = message;
+
+    return res.send(message);
+});
+
+
 // notre app ecoute sur le port 3000
 app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}!`),
+    console.log(`Super mon app tourne sur le port: ${process.env.PORT} !`),
 );
