@@ -12,11 +12,22 @@ const app = express();
 //notre app est proteger par cors
 app.use(cors());
 
-// une route de express
+// les routes de express
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    return res.send('Received a GET HTTP method');
 });
 
+app.post('/', (req, res) => {
+    return res.send('Received a POST HTTP method');
+});
+
+app.put('/', (req, res) => {
+    return res.send('Received a PUT HTTP method');
+});
+
+app.delete('/', (req, res) => {
+    return res.send('Received a DELETE HTTP method');
+});
 
 // notre app ecoute sur le port 3000
 app.listen(process.env.PORT, () =>
