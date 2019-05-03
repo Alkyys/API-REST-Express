@@ -18,31 +18,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-//mes users
-let users = {
-    1: {
-        id: '1',
-        username: 'Robin Wieruch',
-    },
-    2: {
-        id: '2',
-        username: 'Dave Davids',
-    },
-};
-
-let messages = {
-    1: {
-        id: '1',
-        text: 'Hello World',
-        userId: '1',
-    },
-    2: {
-        id: '2',
-        text: 'By World',
-        userId: '2',
-    },
-};
-
 // les routes de express
 app.get('/', (req, res) => {
     return res.send('Received a GET HTTP method');
@@ -110,6 +85,21 @@ app.post('/messages', (req, res) => {
     return res.send(message);
 });
 
+app.delete('/messages/:messageId', (req, res) => {
+    const {
+        [req.params.messageId]: message,
+        ...otherMessages
+    } = messages;
+
+    messages = otherMessages;
+
+    return res.send(message);
+});
+
+//session
+app.get('/session', (req, res) => {
+    return res.send(users[req.me.id]);
+});
 
 // notre app ecoute sur le port 3000
 app.listen(process.env.PORT, () =>
