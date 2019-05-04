@@ -1,3 +1,4 @@
+import models from '../models';
 import uuidv4 from 'uuid/v4';
 import 'dotenv/config';
 import cors from 'cors';
@@ -17,6 +18,19 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//custom Express middleware
+app.use((req, res, next) => {
+    req.context = {
+        models,
+        me: models.users[1],
+    };
+    next();
+});
+
+//session
+app.get('/session', (req, res) => {
+    return res.send(req.context.models.users[req.context.me.id]);
+});
 
 // les routes de express
 app.get('/', (req, res) => {
@@ -37,7 +51,7 @@ app.delete('/', (req, res) => {
 
 //routes users
 app.get('/users', (req, res) => {
-    return res.send(Object.values(users));
+    return res.send(Object.values(req.context.models.users));
 });
 
 app.post('/users', (req, res) => {
@@ -46,7 +60,7 @@ app.post('/users', (req, res) => {
 
 //routes user/id
 app.get('/users/:userId', (req, res) => {
-    return res.send(users[req.params.userId]);
+    return res.send(req.context.models.users[req.params.userId]);
 });
 
 app.put("/users/:userId", (req, res) => {
@@ -57,19 +71,15 @@ app.delete('/users/:userId', (req, res) => {
     return res.send(`DELETE HTTP method on user/${req.params.userId} resource`);
 });
 
-//custom Express middleware
-app.use((req, res, next) => {
-    req.me = users[1];
-    next();
-});
+
 
 //route message
 app.get('/messages', (req, res) => {
-    return res.send(Object.values(messages));
+    return res.send(Object.values(req.context.models.messages));
 });
 
 app.get('/messages/:messageId', (req, res) => {
-    return res.send(messages[req.params.messageId]);
+    return res.send(req.context.models.messages[req.params.messageId]);
 });
 
 app.post('/messages', (req, res) => {
@@ -77,10 +87,10 @@ app.post('/messages', (req, res) => {
     const message = {
         id,
         text: req.body.text,
-        userId: req.me.id,
+        userId: req.context.me.id,
     };
 
-    messages[id] = message;
+    req.context.models.messages[id] = message;
 
     return res.send(message);
 });
@@ -89,17 +99,13 @@ app.delete('/messages/:messageId', (req, res) => {
     const {
         [req.params.messageId]: message,
         ...otherMessages
-    } = messages;
+    } = req.context.models.messages;
 
-    messages = otherMessages;
+    req.context.models.messages = otherMessages;
 
     return res.send(message);
 });
 
-//session
-app.get('/session', (req, res) => {
-    return res.send(users[req.me.id]);
-});
 
 // notre app ecoute sur le port 3000
 app.listen(process.env.PORT, () =>
