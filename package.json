@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "mongoose": "^5.5.5",
     "npm-git-install": "^0.3.0",
     "uuid": "^3.3.2"
   }
