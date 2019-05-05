@@ -1,5 +1,6 @@
 import uuidv4 from 'uuid/v4';
 import { Router } from 'express';
+import mongoose from 'mongoose';
 
 const router = Router();
 
@@ -35,4 +36,15 @@ router.delete('/:messageId', (req, res) => {
     return res.send(message);
 });
 
-export default router;
+const messageSchema = new mongoose.Schema({
+    text: {
+        type: String,
+        required: true,
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+});
+
+const Message = mongoose.model('Message', messageSchema);
+
+export default Message;
+//export default router;

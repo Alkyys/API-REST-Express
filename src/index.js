@@ -1,13 +1,11 @@
-import models from '../models';
-import uuidv4 from 'uuid/v4';
+import express from 'express';
+
 import 'dotenv/config';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import express from 'express';
 import routes from '../routes';
 
-// acces a la variable d'environnement MY_SECRET
-console.log(process.env.MY_SECRET);
+import models, { connectDb } from '../models';
 
 //notre app utilise express
 const app = express();
@@ -18,6 +16,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//mes routes
 app.use('/session', routes.session);
 app.use('/users', routes.user);
 app.use('/messages', routes.message);
@@ -31,8 +30,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
-// les routes de express
+// les routes de root pour test
 app.get('/', (req, res) => {
     return res.send('Received a GET HTTP method');
 });
@@ -50,6 +48,10 @@ app.delete('/', (req, res) => {
 });
 
 // notre app ecoute sur le port 3000
-app.listen(process.env.PORT, () =>
-    console.log(`Super mon app tourne sur le port: ${process.env.PORT} !`),
-);
+connectDb().then(async () => {
+    app.listen(process.env.PORT, () =>
+        console.log(`Example app listening on port ${process.env.PORT}!`),
+    );
+});
+// acces a la variable d'environnement MY_SECRET
+console.log(process.env.MY_SECRET);
