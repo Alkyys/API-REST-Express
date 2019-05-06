@@ -47,6 +47,7 @@ app.delete('/', (req, res) => {
     return res.send('Received a DELETE HTTP method');
 });
 
+//boolen pour remettre a zero la db
 const eraseDatabaseOnSync = true;
 
 connectDb().then(async () => {
@@ -55,7 +56,7 @@ connectDb().then(async () => {
             models.User.deleteMany({}),
             models.Message.deleteMany({}),
         ]);
-
+        createUsersWithMessages();
     }
     // notre app ecoute sur le port 3000
     app.listen(process.env.PORT, () =>
@@ -63,6 +64,37 @@ connectDb().then(async () => {
     );
 });
 
+const createUsersWithMessages = async () => {
+    const user1 = new models.User({
+        username: 'rwieruch',
+    });
+
+    const user2 = new models.User({
+        username: 'ddavids',
+    });
+
+    const message1 = new models.Message({
+        text: 'Published the Road to learn React',
+        user: user1.id,
+    });
+
+    const message2 = new models.Message({
+        text: 'Happy to release ...',
+        user: user2.id,
+    });
+
+    const message3 = new models.Message({
+        text: 'Published a complete ...',
+        user: user2.id,
+    });
+
+    await message1.save();
+    await message2.save();
+    await message3.save();
+
+    await user1.save();
+    await user2.save();
+};
 
 // acces a la variable d'environnement MY_SECRET
 console.log(process.env.MY_SECRET);
