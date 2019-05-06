@@ -1,11 +1,12 @@
 import express from 'express';
-
 import 'dotenv/config';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import routes from '../routes';
 
 import models, { connectDb } from '../models';
+
+const MongoClient = require('mongodb').MongoClient;
 
 //notre app utilise express
 const app = express();
