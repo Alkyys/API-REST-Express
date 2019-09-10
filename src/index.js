@@ -16,19 +16,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-//mes routes
+//custom Express middleware
+app.use(async (req, res, next) => {
+  req.context = {
+    models,
+    me: await models.User.findByLogin('rwieruch'),
+  };
+  next();
+});
+
+// Routes
 app.use('/session', routes.session);
 app.use('/users', routes.user);
 app.use('/messages', routes.message);
 
-//custom Express middleware
-app.use((req, res, next) => {
-    req.context = {
-        models,
-        me: models.users[1],
-    };
-    next();
-});
 
 // les routes de root pour test
 app.get('/', (req, res) => {
@@ -51,17 +52,18 @@ app.delete('/', (req, res) => {
 const eraseDatabaseOnSync = true;
 
 connectDb().then(async () => {
-    if (eraseDatabaseOnSync) {
-        await Promise.all([
-            models.User.deleteMany({}),
-            models.Message.deleteMany({}),
-        ]);
-        createUsersWithMessages();
-    }
-    // notre app ecoute sur le port 3000
-    app.listen(process.env.PORT, () =>
-        console.log(`Example app listening on port ${process.env.PORT}!`),
-    );
+  if (eraseDatabaseOnSync) {
+    await Promise.all([
+      models.User.deleteMany({}),
+      models.Message.deleteMany({}),
+    ]);
+
+    createUsersWithMessages();
+  }
+
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
 });
 
 const createUsersWithMessages = async () => {
@@ -95,14 +97,6 @@ const createUsersWithMessages = async () => {
     await user1.save();
     await user2.save();
 };
-
-app.use(async (req, res, next) => {
-    req.context = {
-        models,
-        me: await models.User.findByLogin('rwieruch'),
-    };
-    next();
-});
 
 // acces a la variable d'environnement MY_SECRET
 console.log(process.env.MY_SECRET);
